@@ -2,8 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DotnetBoilerplate.Api.Controllers
 {
-    [Route("/v1/[Controller]")]
-    public class ProductController : Controller
+    [Route("/api/v1/[Controller]")]
+    [ApiController]
+    public class ProductController : ControllerBase
     {
         [HttpGet]
         public async Task<string> GetAllProducts(CancellationToken cancellationToken)
