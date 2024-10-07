@@ -11,5 +11,13 @@ namespace DotnetBoilerplate.Domain.Entities
         public string LastName { get; protected set; }
 
         public string Password { get; protected set; }
+
+        public User(string email, string firstName, string lastName, string password)
+        {
+            this.Email = email;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Password = password;
+        }
     }
 }
