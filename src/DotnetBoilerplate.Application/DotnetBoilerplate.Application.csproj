@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DotnetBoilerplate.Infrastructure\DotnetBoilerplate.Infrastructure.csproj" />
+    <ProjectReference Include="..\DotnetBoilerplate.Core\DotnetBoilerplate.Core.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

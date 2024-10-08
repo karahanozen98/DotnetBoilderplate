@@ -1,13 +1,16 @@
-using DotnetBoilerplate.Application.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DotnetBoilerplate.Application.Extensions
 {
     public static class BuilderExtension
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+        public static IServiceCollection AddCQRS(this IServiceCollection services)
         {
-            services.AddScoped<UserService>();
+            services.AddMediatR(cfg =>
+            {
+                cfg.RegisterServicesFromAssembly(typeof(BuilderExtension).Assembly);
+            });
+
             return services;
         }
     }

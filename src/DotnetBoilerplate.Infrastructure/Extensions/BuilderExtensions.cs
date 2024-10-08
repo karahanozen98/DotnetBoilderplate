@@ -1,4 +1,5 @@
 using DotnetBoilerplate.Infrastructure.Data;
+using DotnetBoilerplate.Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,11 @@ namespace DotnetBoilerplate.Infrastructure.Extensions
             });
 
             return services;
+        }
+
+        public static IServiceCollection AddGenericRepository(this IServiceCollection services)
+        {
+            return services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         }
     }
 }

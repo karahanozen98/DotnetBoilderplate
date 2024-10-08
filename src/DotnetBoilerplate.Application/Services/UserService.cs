@@ -1,4 +1,4 @@
-using DotnetBoilerplate.Application.Dtos;
+using DotnetBoilerplate.Application.Dtos.Response;
 using DotnetBoilerplate.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 

@@ -16,6 +16,13 @@ mkdir src
 > dotnet add src/DotnetBoilerplate.Infrastructure/DotnetBoilerplate.Infrastructure.csproj package Microsoft.Extensions.Configuration
 > dotnet add src/DotnetBoilerplate.Infrastructure/DotnetBoilerplate.Infrastructure.csproj reference src/DotnetBoilerplate.Domain/DotnetBoilerplate.Domain.csproj
 
+# Core
+
+> dotnet new classlib --output src/DotnetBoilerplate.Core
+> dotnet sln add src/DotnetBoilerplate.Core/DotnetBoilerplate.Core.csproj
+> rm src/DotnetBoilerplate.Core/Class1.cs
+> dotnet add src/DotnetBoilerplate.Core/DotnetBoilerplate.Core.csproj package MediatR
+
 # Application
 
 > dotnet new classlib --output src/DotnetBoilerplate.Application
@@ -25,6 +32,7 @@ mkdir src
 > mkdir src/DotnetBoilerplate.Application/Queries
 > mkdir src/DotnetBoilerplate.Application/Dtos  
 > dotnet add src/DotnetBoilerplate.Application reference src/DotnetBoilerplate.Infrastructure/DotnetBoilerplate.Infrastructure.csproj
+> dotnet add src/DotnetBoilerplate.Application/DotnetBoilerplate.Application.csproj reference src/DotnetBoilerplate.Core/DotnetBoilerplate.Core.csproj
 
 # Api
 
