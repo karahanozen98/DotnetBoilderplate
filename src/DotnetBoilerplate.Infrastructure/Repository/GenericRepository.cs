@@ -62,22 +62,18 @@ namespace DotnetBoilerplate.Infrastructure.Repository
 
         public async Task SaveChangesAsync()
         {
-            var addedEntities = this._context.ChangeTracker
-                .Entries<BaseEntity>()
-                .Where(e => e.State == EntityState.Added);
+            var date = DateTime.Now;
 
-            foreach (var item in addedEntities)
+            foreach (var entry in this._context.ChangeTracker.Entries<BaseEntity>())
             {
-                item.Entity.SetCreatedAt();
-            }
-
-            var modifiedEntities = this._context.ChangeTracker
-                .Entries<BaseEntity>()
-                .Where(e => e.State == EntityState.Modified);
-
-            foreach (var item in modifiedEntities)
-            {
-                item.Entity.SetUpdatedAt();
+                if (entry.State == EntityState.Added)
+                {
+                    entry.Entity.SetCreatedAt(date);
+                }
+                else if (entry.State == EntityState.Modified)
+                {
+                    entry.Entity.SetUpdatedAt(date);
+                }
             }
 
             await this._context.SaveChangesAsync();

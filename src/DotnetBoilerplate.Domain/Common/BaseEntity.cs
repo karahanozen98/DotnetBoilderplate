@@ -8,14 +8,14 @@ namespace DotnetBoilerplate.Domain.Common
 
         public DateTime UpdatedAt { get; protected set; }
 
-        public void SetCreatedAt()
+        public void SetCreatedAt(DateTime date)
         {
-            this.CreatedAt = DateTime.Now;
+            this.CreatedAt = date;
         }
 
-        public void SetUpdatedAt()
+        public void SetUpdatedAt(DateTime date)
         {
-            this.UpdatedAt = DateTime.Now;
+            this.UpdatedAt = date;
         }
     }
 }
