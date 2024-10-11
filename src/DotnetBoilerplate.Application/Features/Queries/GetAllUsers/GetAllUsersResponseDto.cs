@@ -1,24 +1,20 @@
 using DotnetBoilerplate.Domain.Entities;
 
-namespace DotnetBoilerplate.Application.Dtos.Response
+namespace DotnetBoilerplate.Application.Features.Queries.GetAllUsers
 {
-    public class GetAllUsersDto
+    public class GetAllUsersResponseDto
     {
         public Guid Id { get; set; }
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
 
-        public GetAllUsersDto(User user)
+        public GetAllUsersResponseDto(User user)
         {
             this.Id = user.Id;
             this.Email = user.Email;
             this.FirstName = user.FirstName;
             this.LastName = user.LastName;
-            this.CreatedAt = user.CreatedAt;
-            this.UpdatedAt = user.UpdatedAt;
         }
     }
 }

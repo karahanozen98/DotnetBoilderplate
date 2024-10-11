@@ -26,7 +26,7 @@ namespace DotnetBoilerplate.Infrastructure.Repository
             return await _dbSet.ToListAsync(cancellationToken);
         }
 
-        public async Task<TEntity?> GetByIdAsync(int id)
+        public async Task<TEntity?> GetByIdAsync(Guid id)
         {
             return await _dbSet.FindAsync(id);
         }
@@ -51,7 +51,7 @@ namespace DotnetBoilerplate.Infrastructure.Repository
             _dbSet.Update(entity);
         }
 
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(Guid id)
         {
             var entity = await GetByIdAsync(id);
             if (entity != null)

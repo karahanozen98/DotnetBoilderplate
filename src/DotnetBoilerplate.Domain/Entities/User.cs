@@ -16,5 +16,11 @@ namespace DotnetBoilerplate.Domain.Entities
             this.LastName = lastName;
             this.Password = password;
         }
+
+        public void SetFullname(string firstName, string lastName)
+        {
+            this.FirstName = firstName;
+            this.LastName = lastName;
+        }
     }
 }

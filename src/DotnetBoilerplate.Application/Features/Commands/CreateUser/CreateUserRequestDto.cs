@@ -1,6 +1,6 @@
-namespace DotnetBoilerplate.Application.Dtos.Request
+namespace DotnetBoilerplate.Application.Features.Commands.CreateUser
 {
-    public class CreateUserRequest
+    public class CreateUserRequestDto
     {
         public string Email { get; set; }
         public string FirstName { get; set; }
