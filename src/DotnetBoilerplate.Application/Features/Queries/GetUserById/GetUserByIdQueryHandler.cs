@@ -1,5 +1,5 @@
 using DotnetBoilerplate.Core.CQRS;
-using DotnetBoilerplate.Core.Exception;
+using DotnetBoilerplate.Core.Exceptions;
 using DotnetBoilerplate.Domain.Entities;
 using DotnetBoilerplate.Infrastructure.Repository;
 

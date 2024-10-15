@@ -23,6 +23,8 @@ mkdir src
 > rm src/DotnetBoilerplate.Core/Class1.cs
 > dotnet add src/DotnetBoilerplate.Core/DotnetBoilerplate.Core.csproj package MediatR
 > dotnet add src/DotnetBoilerplate.Core/DotnetBoilerplate.Core.csproj package Microsoft.AspNetCore.Mvc
+> dotnet add .\src\DotnetBoilerplate.Core\DotnetBoilerplate.Core.csproj package FluentValidation
+> dotnet add .\src\DotnetBoilerplate.Core\DotnetBoilerplate.Core.csproj package FluentValidation.DependencyInjectionExtensions
 
 # Application
 

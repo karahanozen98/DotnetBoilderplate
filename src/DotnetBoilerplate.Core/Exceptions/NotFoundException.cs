@@ -1,6 +1,6 @@
-namespace DotnetBoilerplate.Core.Exception
+namespace DotnetBoilerplate.Core.Exceptions
 {
-    public class NotFoundException : System.Exception
+    public class NotFoundException : Exception
     {
         public NotFoundException(string message) : base(message)
         {

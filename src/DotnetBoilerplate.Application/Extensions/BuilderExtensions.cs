@@ -1,4 +1,6 @@
+using DotnetBoilerplate.Core.Validation;
 using Microsoft.Extensions.DependencyInjection;
+using FluentValidation;
 
 namespace DotnetBoilerplate.Application.Extensions
 {
@@ -9,9 +11,15 @@ namespace DotnetBoilerplate.Application.Extensions
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(typeof(BuilderExtension).Assembly);
+                cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
             });
 
             return services;
+        }
+
+        public static IServiceCollection AddValidatorsFromAssembly(this IServiceCollection services)
+        {
+            return services.AddValidatorsFromAssembly(typeof(BuilderExtension).Assembly);
         }
     }
 }
