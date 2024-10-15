@@ -2,9 +2,9 @@ using FluentValidation;
 
 namespace DotnetBoilerplate.Application.Features.Commands.CreateUser
 {
-    public sealed class CreateUserCommandValidation : AbstractValidator<CreateUserCommand>
+    public sealed class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {
-        public CreateUserCommandValidation()
+        public CreateUserCommandValidator()
         {
             RuleFor(command => command.FirstName).NotEmpty().MinimumLength(2).MaximumLength(20);
             RuleFor(command => command.LastName).NotEmpty().MinimumLength(2).MaximumLength(20);
