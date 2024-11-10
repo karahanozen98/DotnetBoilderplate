@@ -12,31 +12,31 @@ namespace DotnetBoilerplate.Api.Controllers
     [ApiController]
     public class UserController : ApiController
     {
-        private readonly IMediator _mediator;
+        private readonly ISender _sender;
 
-        public UserController(IMediator mediator)
+        public UserController(ISender sender)
         {
-            this._mediator = mediator;
+            this._sender = sender;
         }
 
         [HttpGet()]
         public async Task<ActionResult<ApiResponse<IEnumerable<GetAllUsersResponseDto>>>> GetAllUsers(CancellationToken cancellationToken)
         {
-            var res = await this._mediator.Send(new GetAllUsersQuery(), cancellationToken);
+            var res = await this._sender.Send(new GetAllUsersQuery(), cancellationToken);
             return this.Ok(res);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<ApiResponse<GetUserByIdResponseDto>>> GetUserById([FromRoute] Guid id, CancellationToken cancellationToken)
         {
-            var res = await this._mediator.Send(new GetUserByIdQuery(id), cancellationToken);
+            var res = await this._sender.Send(new GetUserByIdQuery(id), cancellationToken);
             return this.Ok(res);
         }
 
         [HttpPost()]
         public async Task<ActionResult<ApiResponse>> CreateUser([FromBody] CreateUserRequestDto user, CancellationToken cancellationToken)
         {
-            await this._mediator.Send(new CreateUserCommand
+            await this._sender.Send(new CreateUserCommand
             {
                 Email = user.Email,
                 FirstName = user.FirstName,
@@ -50,7 +50,7 @@ namespace DotnetBoilerplate.Api.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult<ApiResponse>> UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserRequestDto user, CancellationToken cancellationToken)
         {
-            await this._mediator.Send(new UpdateUserCommand
+            await this._sender.Send(new UpdateUserCommand
             {
                 Id = id,
                 FirstName = user.FirstName,
