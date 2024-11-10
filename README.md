@@ -5,11 +5,11 @@ This repository provides a boilerplate for a .NET application, structured with a
 Project Structure
 The project is organized as follows:
 
-Domain: Contains core entities and interfaces
-Infrastructure: Manages data access, using Entity Framework Core for persistence
-Core: Hosts core logic like MediatR for requests and FluentValidation for validation
-Application: Defines application-level features, commands, and queries
-API: Exposes the application features through a RESTful API
+- Domain: Contains core entities and interfaces
+- Infrastructure: Manages data access, using Entity Framework Core for persistence
+- Core: Hosts core logic like MediatR for requests and FluentValidation for validation
+- Application: Defines application-level features, commands, and queries
+- API: Exposes the application features through a RESTful API
 
 # Getting Started
 
