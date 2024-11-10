@@ -1,42 +1,20 @@
-mkdir src
+# DotnetBoilerplate Project
+This repository provides a boilerplate for a .NET application, structured with a Domain, Infrastructure, Core, and Application layer to promote clean architecture principles.
 
-# Domain
+Project Structure
+The project is organized as follows:
 
-> dotnet new classlib --output src/DotnetBoilerplate.Domain;
-> dotnet sln add src/DotnetBoilerplate.Domain/DotnetBoilerplate.Domain.csproj
-> rm src/DotnetBoilerplate.Domain/Class1.cs
+Domain: Contains core entities and interfaces.
+Infrastructure: Manages data access, using Entity Framework Core for persistence.
+Core: Hosts core logic like MediatR for requests and FluentValidation for validation.
+Application: Defines application-level features, commands, and queries.
+API: Exposes the application features through a RESTful API.
 
-# Infrastructure
 
-> dotnet new classlib --output src/DotnetBoilerplate.Infrastructure
-> dotnet sln add src/DotnetBoilerplate.Infrastructure/DotnetBoilerplate.Infrastructure.csproj
-> rm src/DotnetBoilerplate.Infrastructure/Class1.cs
-> dotnet add src/DotnetBoilerplate.Infrastructure/DotnetBoilerplate.Infrastructure.csproj package Microsoft.EntityFrameworkCore
-> dotnet add src/DotnetBoilerplate.Infrastructure/DotnetBoilerplate.Infrastructure.csproj package Microsoft.EntityFrameworkCore.InMemory
-> dotnet add src/DotnetBoilerplate.Infrastructure/DotnetBoilerplate.Infrastructure.csproj package Microsoft.Extensions.Configuration
-> dotnet add src/DotnetBoilerplate.Infrastructure/DotnetBoilerplate.Infrastructure.csproj reference src/DotnetBoilerplate.Domain/DotnetBoilerplate.Domain.csproj
+# Getting Started
+Prerequisites
+.NET SDK version compatible with your setup.
+Entity Framework Core for data access.
 
-# Core
-
-> dotnet new classlib --output src/DotnetBoilerplate.Core
-> dotnet sln add src/DotnetBoilerplate.Core/DotnetBoilerplate.Core.csproj
-> rm src/DotnetBoilerplate.Core/Class1.cs
-> dotnet add src/DotnetBoilerplate.Core/DotnetBoilerplate.Core.csproj package MediatR
-> dotnet add src/DotnetBoilerplate.Core/DotnetBoilerplate.Core.csproj package Microsoft.AspNetCore.Mvc
-> dotnet add .\src\DotnetBoilerplate.Core\DotnetBoilerplate.Core.csproj package FluentValidation
-> dotnet add .\src\DotnetBoilerplate.Core\DotnetBoilerplate.Core.csproj package FluentValidation.DependencyInjectionExtensions
-
-# Application
-
-> dotnet new classlib --output src/DotnetBoilerplate.Application
-> dotnet sln add src/DotnetBoilerplate.Application/DotnetBoilerplate.Application.csproj
-> rm src/DotnetBoilerplate.Application/Class1.cs
-> mkdir src/DotnetBoilerplate.Application/Commands
-> mkdir src/DotnetBoilerplate.Application/Queries
-> mkdir src/DotnetBoilerplate.Application/Dtos  
-> dotnet add src/DotnetBoilerplate.Application reference src/DotnetBoilerplate.Infrastructure/DotnetBoilerplate.Infrastructure.csproj
-> dotnet add src/DotnetBoilerplate.Application/DotnetBoilerplate.Application.csproj reference src/DotnetBoilerplate.Core/DotnetBoilerplate.Core.csproj
-
-# Api
-
-> dotnet add src/DotnetBoilerplate.Api reference src/DotnetBoilerplate.Application
+In the project directory, run 
+## dotnet run --project src/DotnetBoilerplate.Api
